@@ -13,7 +13,9 @@ public class Main {
         System.out.println(person1);
 
         Gson gson = new Gson();
-        
+        String json = gson.toJson(person1);
+
+        System.out.println(json);
 
     }
 }
