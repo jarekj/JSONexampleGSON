@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.lang.reflect.Type;
 
 public class PersonTest {
 
@@ -17,8 +20,18 @@ public class PersonTest {
     }
 
     @Test
-    public void shouldWork(){
+    public void GenericBoxConvertedToJSONAndConvertedBackToGenericBox(){
+        Gson gson2 = new Gson();
+        Person person3 = new Person("Jarek", "Browarek", 18, 196, new String[]{"Python", "Soccer", "Karate"});
+        GenericBox<Person> pBox1 = new GenericBox<Person>(person3);
+        String json2 = gson2.toJson(pBox1);
+        Type pBox1Type = new TypeToken<GenericBox<Person>>(){}.getType();
 
+        GenericBox<Person> pBox2 = gson2.fromJson(json2, pBox1Type);
+
+        GenericBox<Person> actual = pBox1;
+        GenericBox<Person> expected = pBox2;
+        Assert.assertEquals(expected, actual);
     }
 
 }

@@ -23,8 +23,10 @@ public class Main {
         GenericBox<Person> pBox1 = new GenericBox<Person>(person1);
         System.out.println(pBox1);
         String json2 = gson2.toJson(pBox1);
+        System.out.println(json2);
 
         GenericBox<Person> pBox2 = gson2.fromJson(json2, pBox1.getClass());
+
 
 
 
