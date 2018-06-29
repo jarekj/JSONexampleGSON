@@ -17,5 +17,10 @@ public class Main {
 
         System.out.println(json);
 
+        Person person2 = gson.fromJson(json, Person.class);
+
+        System.out.println("------------------");
+        System.out.println(person2);
+
     }
 }
