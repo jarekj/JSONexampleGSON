@@ -7,6 +7,14 @@ public class Person {
     int height;
     String[] hobby;
 
+    public Person(String firstName, String lastName, int age, int height, String[] hobby) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.height = height;
+        this.hobby = hobby;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -56,5 +64,30 @@ public class Person {
                 ", height=" + height +
                 ", hobby=" + Arrays.toString(hobby) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        if (height != person.height) return false;
+        if (!firstName.equals(person.firstName)) return false;
+        if (!lastName.equals(person.lastName)) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(hobby, person.hobby);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + age;
+        result = 31 * result + height;
+        result = 31 * result + Arrays.hashCode(hobby);
+        return result;
     }
 }
