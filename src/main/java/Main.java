@@ -10,6 +10,8 @@ public class Main {
         System.out.println(person11);
 
         Gson gson = new Gson();
+        person1.setFirstName(null);
+        System.out.println("&&&&&&&&&&&&&");
         String json1 = gson.toJson(person1);
 
         System.out.println(json1);
