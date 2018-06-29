@@ -10,14 +10,23 @@ public class Main {
         System.out.println(person11);
 
         Gson gson = new Gson();
-        String json = gson.toJson(person1);
+        String json1 = gson.toJson(person1);
 
-        System.out.println(json);
+        System.out.println(json1);
 
-        Person person2 = gson.fromJson(json, Person.class);
+        Person person2 = gson.fromJson(json1, Person.class);
 
         System.out.println("------------------");
         System.out.println(person2);
+
+        Gson gson2 = new Gson();
+        GenericBox<Person> pBox1 = new GenericBox<Person>(person1);
+        System.out.println(pBox1);
+        String json2 = gson2.toJson(pBox1);
+
+        GenericBox<Person> pBox2 = gson2.fromJson(json2, pBox1.getClass());
+
+
 
 
 

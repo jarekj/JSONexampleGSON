@@ -6,7 +6,7 @@ public class PersonTest {
 
 
     @Test
-    public void shouldBeEqualWhenCOnvertedToJSONandCreatedFromThatJSON() {
+    public void shouldBeEqualWhenConvertedToJSONandCreatedFromThatJSON() {
         Gson gson = new Gson();
         Person person1 = new Person("Jarek", "Browarek", 18, 196, new String[]{"Python", "Soccer", "Karate"});
         String json = gson.toJson(person1);
@@ -14,6 +14,11 @@ public class PersonTest {
         Person actual = person1;
         Person expected = person2;
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldWork(){
+
     }
 
 }
