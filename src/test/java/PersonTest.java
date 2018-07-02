@@ -44,8 +44,8 @@ public class PersonTest {
         String json = gson.toJson(person1);
 //        System.out.println(person1);
 //        System.out.println(json);
-        boolean actual = true;
-        boolean expected = json.contains("\"lastName\":null");
+        boolean actual = json.contains("\"lastName\":null");
+        boolean expected = true;
         Assert.assertEquals(expected, actual);
     }
 
@@ -56,8 +56,8 @@ public class PersonTest {
         String json = gson.toJson(person);
         System.out.println(person);
         System.out.println(json);
-        boolean actual = false;
-        boolean expected = json.contains("lastName");
+        boolean actual = json.contains("lastName");
+        boolean expected = false;
         Assert.assertEquals(expected, actual);
     }
 
