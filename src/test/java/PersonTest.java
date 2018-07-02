@@ -37,16 +37,27 @@ public class PersonTest {
 
     @Test
     public void shoulJSON_ContainNulls() {
-        GsonBuilder builder = new GsonBuilder();
-        builder.serializeNulls();
-        Gson gson = builder.create();
-        gson.serializeNulls();
+        Gson gson = new GsonBuilder()
+                .serializeNulls()
+                .create();
         Person person1 = new Person("Jarek", null, 18, 196, new String[]{"Python", "Soccer", "Karate"});
         String json = gson.toJson(person1);
-        System.out.println(person1);
-        System.out.println(json);
+//        System.out.println(person1);
+//        System.out.println(json);
         boolean actual = true;
-        boolean expected = json.contains("null");
+        boolean expected = json.contains("\"lastName\":null");
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shoudlMissStringfirstNameAndLastName(){
+        Gson gson = new Gson();
+        Person2 person = new Person2("Jarek", "Browarek", 18, 196, new String[]{"Python", "Soccer", "Karate"});
+        String json = gson.toJson(person);
+        System.out.println(person);
+        System.out.println(json);
+        boolean actual = false;
+        boolean expected = json.contains("lastName");
         Assert.assertEquals(expected, actual);
     }
 
