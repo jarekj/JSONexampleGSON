@@ -59,4 +59,13 @@ public class PersonTest {
         Assert.assertEquals(true, actual);
     }
 
+    @Test
+    public void shouldChange_lastName_Into_last_name_InJsonFile(){
+        Gson gson = new Gson();
+        Person3 person3obj = new Person3("Marek", "Citko", 40, 190, new String[] {"Python", "Soccer", "Karate"});
+        String jsonP3 = gson.toJson(person3obj);
+        boolean actual = jsonP3.contains("first_name");
+        Assert.assertEquals(true, actual);
+    }
+
 }

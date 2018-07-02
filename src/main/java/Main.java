@@ -29,10 +29,11 @@ public class Main {
 
         GenericBox<Person> pBox2 = gson2.fromJson(json2, pBox1.getClass());
 
-
-
-
-
+        System.out.println("***********************************");
+        Person3 person3obj = new Person3("Marek", "Citko", 40, 190, new String[] {"Python", "Soccer", "Karate"});
+        System.out.println(person3obj);
+        String jsonP3 = gson.toJson(person3obj);
+        System.out.println(jsonP3);
 
     }
 }
